@@ -7,7 +7,7 @@ public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 {
     private int tabIndex;
     private Image image;
-    private TabController tabController;
+    public TabController tabController;
     private bool isActive = false;
     private Color activeColor;
     private Color focusColor;
@@ -39,7 +39,6 @@ public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     // Start is called before the first frame update
     private void Awake()
     {
-        tabController = FindObjectOfType<TabController>();
         image = GetComponent<Image>();
         activeColor = Color.blue;
         inactiveColor = Color.white;

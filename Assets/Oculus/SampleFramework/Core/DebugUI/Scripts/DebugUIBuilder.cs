@@ -228,7 +228,7 @@ public class DebugUIBuilder : MonoBehaviour
   {
     RectTransform buttonRT = GameObject.Instantiate(buttonPrefab).GetComponent<RectTransform>();
     Button button = buttonRT.GetComponentInChildren<Button>();
-    button.onClick.AddListener(delegate { handler(); });
+    // button.onClick.AddListener(delegate { handler(); });
     ((Text)(buttonRT.GetComponentsInChildren(typeof(Text), true)[0])).text = label;
     AddRect(buttonRT, targetCanvas);
     return buttonRT;
