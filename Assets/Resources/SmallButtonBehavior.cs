@@ -1,18 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class SmallButtonBehavior : MonoBehaviour
+public class SmallButtonBehavior : MonoBehaviour, IPointerClickHandler
 {
+    public bool isTarget;
+    public bool isTriggered;
+    public FeedbackManager feedbackManager;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
+    {
+        isTarget = false;
+        //isTriggered = false;
+        feedbackManager = FindObjectOfType<FeedbackManager>();
+    }
+
+    public void getSelected()
+    {
+        GetComponent<Image>().color = Color.red;
+        isTarget = true;
+    }
+
+    public void getDeselected()
+    {
+        GetComponent<Image>().color = Color.white;
+        isTarget = false;
+        //isTriggered = false;
+    }
+
+    public void OnClick()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
+        if (isTarget)
+        {
+            //isTriggered = true;
+            feedbackManager.timerRunning = false;
+        }
     }
 }

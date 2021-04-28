@@ -47,12 +47,12 @@ public class TabController : MonoBehaviour
 
     public void ButtonMouseEnter(int _id)
     {
-        Debug.Log("Entered");
+        //Debug.Log("Entered");
     }
 
     public void ButtonMouseExit(int _id)
     {
-        Debug.Log("Exited");
+        //Debug.Log("Exited");
     }
 
     private void HideAllPanels()
