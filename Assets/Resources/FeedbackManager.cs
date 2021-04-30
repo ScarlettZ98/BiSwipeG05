@@ -13,6 +13,8 @@ public class FeedbackManager : MonoBehaviour
     public GameObject NextStageButton;
 
     private bool isRecoding;
+
+    private float learningTimer;
     // is the timer running
     public bool timerRunning;
 
@@ -32,6 +34,8 @@ public class FeedbackManager : MonoBehaviour
     {
         currentStage = 0;
 
+        learningTimer = 0.0f;
+
         isRecoding = false;
 
         timerRunning = false;
@@ -50,6 +54,14 @@ public class FeedbackManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (learningTimer < 60.0f)
+        {
+            learningTimer += Time.deltaTime;
+        } else
+        {
+            endLearning();
+        }
+
         //stageManager();
         if (timerRunning)
         {
@@ -460,12 +472,12 @@ public class FeedbackManager : MonoBehaviour
     {
         if (!isRecoding)
         {
+            isRecoding = true;
             NextStageButton.SetActive(false);
             currentStage++;
             Debug.Log("switch");
-            StartCoroutine(scriptLoopBody());
+            StartCoroutine(scriptLoopBody());   
         }
-        
     }
 
 }

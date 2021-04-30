@@ -42,4 +42,13 @@ public class SmallButtonBehavior : MonoBehaviour, IPointerClickHandler
             feedbackManager.timerRunning = false;
         }
     }
+
+    public void OnHandClick()
+    {
+        if (isTarget)
+        {
+            //isTriggered = true;
+            feedbackManager.timerRunning = false;
+        }
+    }
 }
