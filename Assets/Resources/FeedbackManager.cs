@@ -30,6 +30,10 @@ public class FeedbackManager : MonoBehaviour
     // challenges
     public List<GameObject> targets;
 
+    // return
+    public GameObject screen0;
+    public GameObject screen1;
+
     void Awake()
     {
         currentStage = 0;
@@ -54,7 +58,7 @@ public class FeedbackManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (learningTimer < 60.0f)
+        if (learningTimer < 120.0f)
         {
             learningTimer += Time.deltaTime;
         } else
@@ -475,7 +479,9 @@ public class FeedbackManager : MonoBehaviour
             isRecoding = true;
             NextStageButton.SetActive(false);
             currentStage++;
-            Debug.Log("switch");
+            screen1.SetActive(false);
+            screen0.SetActive(true);
+            screen0.GetComponent<TabController>().ButtonMouseClick(0);
             StartCoroutine(scriptLoopBody());   
         }
     }

@@ -447,6 +447,8 @@ MonoBehaviour:
   - {fileID: 1183389976}
   - {fileID: 616016175}
   - {fileID: 264374151}
+  screen0: {fileID: 4278259040809980857}
+  screen1: {fileID: 556774009}
 --- !u!4 &142746828
 Transform:
   m_ObjectHideFlags: 0
